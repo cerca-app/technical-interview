@@ -9,9 +9,9 @@ def get_second_degree_contacts(user_id: int) -> List[Contact]:
 
     Make sure your function works and accounts for edge cases
     '''
-    with get_db() as db:
-        # code here
-        return []
+    db = next(get_db())
+    # code here
+    return []
 
 if __name__ == "__main__":
     get_second_degree_contacts(1) # modify arg for test
