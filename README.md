@@ -15,3 +15,8 @@ pip install -r requirements.txt
 ```bash
 alembic upgrade head
 ```
+
+4. Run the `populate_db.py` script to populate the database with test data:
+```bash
+python3 populate_db.py
+```
