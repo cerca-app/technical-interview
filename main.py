@@ -10,7 +10,32 @@ def get_second_degree_contacts(user_id: int) -> List[Contact]:
     Make sure your function works and accounts for edge cases
     '''
     db = next(get_db())
+    # Initialize a list
     # code here
+    # check if that is valid user
+    # get all first degree contacts using contacts table
+    # iterate through them
+    # on each level inside the loop, I will fetch contacts, see if they are already in the list, if not, I will add them
+
+    allContacts = db.query(Contact).filter(Contact.user_id == user_id).all()
+    secondDegreeContacts = []
+    for contact in allContacts:
+        firstDegreeforContact = db.query(Contact).filter(Contact.user_id == contact.id).all()
+        for mutual in firstDegreeforContact:
+            secondDegreeContacts.append(mutual)
+
+    for people in secondDegreeContacts:
+        print(people.contact_name)
+
+
+    # put all the connections in a queue
+    # make a queue and use BFS to traverse all the connections and get 2nd degree connections
+    # while (!queue.isEmpty()){
+    # pop the first userId
+    # get all the contacts of the first userId/User
+    # push these contacts in the List
+    # }
+
     return []
 
 if __name__ == "__main__":
